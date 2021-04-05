@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+
+<li class="active"><a href="{% url 'homepage' %}" style="color: #fff;">Back</a></li>
+
+{% endblock nav %}
+
+{% block content %}
+
+  <!-- ======= Team Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title" style="margin-bottom: 20px; margin-top:50px;">
+          <h2>Our Staff</h2>
+          <p>Our dynamic staff makes the teaching interesting at the same time easy to understand for students</p>
+        </div>
+
+        <div class="row">
+        {% for s in staff %}
+          <div class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-center justify-content-center mt-3">
+            <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
+              <div>
+                <img src="{{s.imageURL}}" class="img-fluid" style="height: 210px; width: 250px;" alt="{{s.name}}">
+                <div style="text-align: center; margin-top:20px;">
+                  <h4 style=" font-size:16px ">{{s.name}}</h4>
+                  <span>{{s.desg}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section>
+<!-- End Team Section -->
+
+{% endblock content %}

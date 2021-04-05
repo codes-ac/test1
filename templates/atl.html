@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block nav %}
+
+<li class="active"><a href="{% url 'homepage' %}" style="color: #fff;">Back</a></li>
+
+{% endblock nav %}
+
+{% block content %}
+
+  <!-- ======= ATL Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title" style="margin-bottom: 20px; margin-top:50px;">
+          <h2>ATL</h2>
+          <p>Atal tinkering lab of Shiv singh verma aadarsh government higher secondary school dhamtari 
+          is the first atal tinkering lab selected by niti aayog in 2017.Through the atal tinkering lab 
+          the children are becoming proficient in various technical skills.Students have created various 
+          new technology devices and have won awards at the state and district level.Students are also 
+          becoming experts in 3- d printing and going to start selling various 3-d printed articles in 
+          coming days.</p>
+        </div>
+
+        <div class="row">
+        {% for g in atl %}
+          <div class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-center justify-content-center mt-3">
+            <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
+              <a href="{{ g.imageURL }}" class="venobox preview-link"><img src="{{g.imageURL}}" class="img-fluid" style="height: 210px; width: 250px;" alt="{{g.name}}"></a>
+            </div>
+        </div>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section>
+<!-- End ATL Section -->
+
+{% endblock content %}

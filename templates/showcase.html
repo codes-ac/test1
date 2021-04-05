@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block header %}
+
+  <!-- <a href="$"> <i class="bx bx-cart-alt get-started-btn" style="font-size: 1.5rem;"></i></a> -->
+
+{% endblock header %}
+
+{% block nav %}
+
+<li class="active"><a href="{% url 'homepage' %}" style="color: #fff;">Back</a></li>
+
+{% endblock nav %}
+
+{% block content %}
+
+  <!-- ======= SHOP Section ======= -->
+    <section id="team" class="team section-bg">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title" style="margin-bottom: 20px; margin-top:50px;">
+          <h2>STUDENT'S SHOP</h2>
+          <p>Our Student has created the masterpiece</p>
+
+          <p>
+              Your encouragement can make a change to their lives.
+          </p>
+        </div>
+
+        <div class="row">
+        {% for s in showcase %}
+          <div class="col-lg-4 col-md-4 col-sm-12 d-flex align-items-center justify-content-center mt-3">
+            <div class="member d-flex align-items-center" data-aos="zoom-in" data-aos-delay="100">
+              <div style="text-align: center; ">
+                  <a href="{{ s.imageURL }}" class="venobox preview-link"><img src="{{s.imageURL}}" class="img-fluid" style="height: 200px; width: fill; " alt="{{s.name}}"></a>
+                <div style="text-align: center; margin-top:20px;">
+                  <h4 style=" font-size:14px; ">{{s.name}}</h4>
+                  <span><b>Rs. {{s.price}} </b></span>
+                  <span> {{s.desc | slice:40}} ...</span>
+                </div>
+                <div style="text-align: center;">
+                  <button class="add-btn"> <a href="{% url 'checkout' s.id %}" style="color:#fff"> Buy Now </a></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+
+      </div>
+    </section>
+<!-- End SHOP Section -->
+
+{% endblock content %}
+
