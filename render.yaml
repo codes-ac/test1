@@ -1,6 +1,6 @@
 databases:
   - name: ssv
-    databaseName: ssv
+    databaseName: db.sqlite3
     user: root
 
 services:
